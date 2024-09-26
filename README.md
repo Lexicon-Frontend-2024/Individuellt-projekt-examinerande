@@ -1,4 +1,5 @@
-### Projektidé: "Online Produktkatalog"
+Produktportalen
+Examinerande individuellt arbete i react typescript
 
 #### Tema:
 Du får själv välj vad för typ av produkter som ska ingå i din katalog, exempelvis:
@@ -8,7 +9,8 @@ Du får själv välj vad för typ av produkter som ska ingå i din katalog, exem
 - Besökare på ett tivoli
 - Vin i din vinkyl
 - Spel i din bokhylla
-- ...eller något annat liknande tema du finner intressant.
+- Event på en mässa
+- ...eller något annat liknande tema du finner intressant eller användbart i ditt eget liv.
 
 ### Projektkrav:
 1. **API/Datakälla**: Studenterna kan välja att antingen använda ett befintligt API (exempelvis ett öppet API från GitHub eller liknande) eller skapa sin egen JSON-fil som fungerar som datakälla. Data ska omfatta åtminstone:
