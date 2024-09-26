@@ -2,7 +2,7 @@
 Examinerande individuellt arbete i react typescript
 
 #### Tema:
-Du får själv välj vad för typ av produkter som ska ingå i din katalog, exempelvis:
+Du får själv välja vad för typ av "produkter" som ska ingå i din portal, exempelvis:
 - Böcker du vill läsa eller har läst
 - Dina träningsresultat på gymmet
 - Hundar på ett hunddagis
@@ -42,6 +42,10 @@ Du får själv välj vad för typ av produkter som ska ingå i din katalog, exem
     - Produktsidan (med lista av produkter)
     - Detaljsidan för en specifik produkt
     - Formulär för att skapa/redigera en produkt
+  
+5. **Övrigt**:
+   - Typescript eller javascript är frivilligt
+   - Kom på ett fyndigt och passande namn till din applikation
 
 ### Projektets upplägg och tidsplan:
 #### Vecka 1: Planering och Design
