@@ -3,13 +3,18 @@ Examinerande individuellt arbete i react typescript
 
 #### Tema:
 Du får själv välj vad för typ av produkter som ska ingå i din katalog, exempelvis:
-- Telefoner
-- Böcker
+- Böcker du vill läsa eller har läst
+- Dina träningsresultat på gymmet
 - Hundar på ett hunddagis
 - Besökare på ett tivoli
 - Vin i din vinkyl
 - Spel i din bokhylla
 - Event på en mässa
+- Drönare som kommer med kaffe
+- Mat i ditt kylskåp
+- Fåglar på en fågelskådarlista
+- Växter i ditt hem
+- Mjölkkor på din farm
 - ...eller något annat liknande tema du finner intressant eller användbart i ditt eget liv.
 
 ### Projektkrav:
