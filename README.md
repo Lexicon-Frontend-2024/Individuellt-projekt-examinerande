@@ -13,7 +13,7 @@ Du får själv välj vad för typ av produkter som ska ingå i din katalog, exem
 - ...eller något annat liknande tema du finner intressant eller användbart i ditt eget liv.
 
 ### Projektkrav:
-1. **API/Datakälla**: Studenterna kan välja att antingen använda ett befintligt API (exempelvis ett öppet API från GitHub eller liknande) eller skapa sin egen JSON-fil som fungerar som datakälla. Data ska omfatta åtminstone:
+1. **API/Datakälla**: Studenterna kan välja att antingen använda ett befintligt API (exempelvis ett öppet API från GitHub eller liknande) eller skapa din egen JSON-fil som fungerar som datakälla. Data ska omfatta åtminstone:
     - Produktnamn/titel
     - Bild (URL till bild)
     - Beskrivning
@@ -74,7 +74,7 @@ Du får själv välj vad för typ av produkter som ska ingå i din katalog, exem
 
 3. **Dag 15:**
     - Slutgiltig testning: Se till att alla funktioner (CRUD, routing, state management) fungerar korrekt.
-    - Förbered en kort presentation av applikationen och genomför kodgranskning med andra studenter eller lärare.
+    - Förbered en kort presentation av applikationen och genomför kodgranskning med andra studenter och lärare.
 
 ### Bedömningskriterier:
 1. **Funktionalitet**: Alla CRUD-operationer fungerar korrekt.
