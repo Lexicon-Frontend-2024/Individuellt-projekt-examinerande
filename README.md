@@ -1,5 +1,5 @@
 # Produktportalen
-Examinerande individuellt arbete i react typescript
+Examinerande individuellt arbete i react
 
 #### Tema:
 Du får själv välja vad för typ av "produkter" som ska ingå i din portal, exempelvis:
