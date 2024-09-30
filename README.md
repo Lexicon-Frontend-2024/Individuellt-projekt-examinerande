@@ -16,6 +16,7 @@ Du får själv välja vad för typ av "produkter" som ska ingå i din portal, ex
 - Växter i ditt hem
 - Mjölkkor på din farm
 - ...eller något annat liknande tema du finner intressant eller användbart i ditt eget liv.
+- [Publika API:er](https://github.com/public-apis/public-apis)
 
 ### Projektkrav:
 1. **API/Datakälla**: Studenterna kan välja att antingen använda ett befintligt API (exempelvis ett öppet API från GitHub eller liknande) eller skapa din egen JSON-fil som fungerar som datakälla. Data ska omfatta åtminstone:
