@@ -14,6 +14,7 @@ Du får själv välja vad för typ av "produkter" som ska ingå i din portal, ex
 - Mat i ditt kylskåp
 - Fåglar på en fågelskådarlista
 - Växter i ditt hem
+- Mina vänner-bok
 - Mjölkkor på din farm
 - ...eller något annat liknande tema du finner intressant eller användbart i ditt eget liv.
 - [Publika API:er](https://github.com/public-apis/public-apis)
