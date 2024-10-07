@@ -69,7 +69,7 @@ Du får själv välja vad för typ av "produkter" som ska ingå i din portal, ex
 2. **Dag 8–9:**
     - Implementera formulär för att skapa och uppdatera produkter.
     - Använd `useState` för att hantera formulärdata.
-    - Skriv funktionalitet för att skapa/uppdatera data i useContext.
+    - Skriv funktionalitet för att skapa/uppdatera data i useContext eller localStorage.
 
 3. **Dag 10:**
     - Skapa en funktion för att radera en produkt från listan (DELETE-metoden i API, eller ta bort från JSON-fil).
