@@ -1,0 +1,39 @@
+header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+
+	position: fixed;
+	top: 0;
+	z-index: 1;
+
+	background-color: #a4abff;
+
+	nav {
+		ul {
+			display: flex;
+			list-style-type: none;
+			li {
+				a.active > * {
+					background-color: var(--color-purple-darkest);
+				}
+			}
+
+			a > * {
+				color: white;
+
+				min-width: 7rem;
+				padding: 1.125rem 1rem 0.625rem;
+
+				border-bottom: 0.25rem var(--color-purple-dark) solid;
+				transition: all 0.2s;
+
+				&:hover {
+					color: #a4abff;
+					background-color: var(--color-purple-darkest);
+					padding: 0.875rem 1rem 0.875rem;
+				}
+			}
+		}
+	}
+}
