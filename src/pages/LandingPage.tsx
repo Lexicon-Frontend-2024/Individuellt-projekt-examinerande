@@ -37,7 +37,8 @@ export function LandingPage(): ReactElement {
 			<img></img>
 			{/*  */}
 			{}
-			<CardImg url={randomCard.image_uris.png} alt={randomCard.name} caption={randomCard.name}></CardImg>
+			{/* <CardImg imgUrl={randomCard.image_uris.png} alt={randomCard.name} caption={randomCard.name}></CardImg> */}
+			<CardImg card={randomCard}></CardImg>
 			{/* {errorMessage ? <h1 className="errorMessage">{errorMessage}</h1> : null}{" "} */}
 		</section>
 	);
