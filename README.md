@@ -72,7 +72,7 @@ Du får själv välja vad för typ av "produkter" som ska ingå i din portal, ex
     - Skriv funktionalitet för att skapa/uppdatera data i useContext eller localStorage.
 
 3. **Dag 10:**
-    - Skapa en funktion för att radera en produkt från listan (DELETE-metoden i API, eller ta bort från JSON-fil).
+    - Skapa en funktion för att radera en produkt från listan.
 
 #### Vecka 3: Avancerad Funktionalitet och Slutgiltig Presentation
 1. **Dag 11–12:**
