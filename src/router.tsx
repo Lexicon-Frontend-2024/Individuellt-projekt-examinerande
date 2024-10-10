@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { LandingPage } from "./pages";
+import { DeckBuilder, LandingPage } from "./pages";
 import { App } from "./components";
 // import { cocktailInfoLoader, randomCocktailLoader, ingredientLoader } from "./loaders";
 
@@ -14,6 +14,10 @@ export const router = createBrowserRouter([
 				index: true,
 				element: <LandingPage />,
 				loader: randomCardLoader,
+			},
+			{
+				path: "/deckbuilder",
+				element: <DeckBuilder />,
 			},
 			// {
 			// 	path: "/search",

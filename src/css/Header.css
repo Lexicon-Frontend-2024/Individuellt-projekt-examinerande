@@ -15,9 +15,10 @@ header {
 			list-style-type: none;
 			li {
 				a.active > * {
-					background-color: var(--color-purple-darkest);
+					background-color: #57c;
 				}
 			}
+			border-bottom: 4px black;
 
 			a > * {
 				color: white;
@@ -29,7 +30,7 @@ header {
 				transition: all 0.2s;
 
 				&:hover {
-					color: #a4abff;
+					/* color: #a4abff; */
 					background-color: var(--color-purple-darkest);
 					padding: 0.875rem 1rem 0.875rem;
 				}

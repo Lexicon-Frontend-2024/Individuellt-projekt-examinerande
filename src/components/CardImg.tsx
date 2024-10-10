@@ -1,21 +1,20 @@
 /* 
-Takes prop 'imgUrl' and displays the image found at the provided url.
- */
-// import { ReactElement } from "react";
+Card image that links to an external info page (scryfall)
+
+Prop: card
+object. accepts unaltered single card from API response.
+
+keys: 
+.name
+	the name of an MTG card. string.
+.image_uris.png
+	the url to an image. string.
+*/
 
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { ICard } from "../interfaces";
 
-/* 	interface CardImgProps {
-	imgUrl: string | undefined;
-	link?: string;
-	alt?: string;
-	caption?: string;
-} */
-
-// export const CardImg: React.FC<CardImgProps> = ({ imgUrl, alt = "Image", caption = "" }) => {
-// export const CardImg: React.FC<ICard> = ({ card: ICard }) => {
 export function CardImg({ card }: { card: ICard }): ReactElement {
 	return (
 		<article className="card-wrapper">

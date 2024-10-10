@@ -1,0 +1,23 @@
+#deckBuilder {
+	width: 100vw;
+	margin: 0 2rem;
+	#decklist-form {
+		/* text-align: center; */
+		align-items: start;
+		display: flex;
+		flex-direction: column;
+
+		width: 15rem;
+
+		input,
+		textarea {
+			width: 15rem;
+			/* height: 15rem; */
+			margin-bottom: 1rem;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		textarea {
+			resize: none;
+		}
+	}
+}

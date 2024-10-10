@@ -1,4 +1,5 @@
 @import url("./CardImg.css");
+@import url("./DeckBuilder.css");
 @import url("./Header.css");
 @import url("./LandingPage.css");
 
@@ -25,6 +26,7 @@
 		justify-content: center;
 		min-width: 320px;
 		min-height: 100vh;
+		margin-top: 5rem;
 	}
 
 	a {

@@ -40,3 +40,9 @@ export interface ICard {
 		[key: string]: string; // catch-all for any additional formats. (any other field under 'legalities' will be typed as a string)
 	};
 }
+
+export interface IDecklistEntry {
+	//  used for single cards in a decklist. each line "4 Mox Opal" turns into {"Mox Opal", 4}
+	name: string;
+	count: number;
+}
