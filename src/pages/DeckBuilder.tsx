@@ -1,6 +1,6 @@
 import { FormEvent, ReactElement, useState } from "react";
-import { IDecklistEntry } from "../interfaces";
-import { parseCardName } from "../utils";
+import { IDeck, IDecklistEntry } from "../interfaces";
+import { capitalizeWords, parseCardName } from "../utils";
 export function DeckBuilder(): ReactElement {
 	// raw textbox data:
 	const [rawDeckName, setRawDeckName] = useState("");
@@ -11,8 +11,13 @@ export function DeckBuilder(): ReactElement {
 	const [deckName, setDeckName] = useState<string>("");
 	const [deckMain, setDeckMain] = useState<IDecklistEntry[]>([]);
 	const [deckSB, setDeckSB] = useState<IDecklistEntry[]>([]);
+	const [deck, setDeck] = useState<IDeck>({
+		name: deckName,
+		main: deckMain,
+		sideboard: deckSB,
+	});
 
-	function toDecklistEntry(input: string): IDecklistEntry | null {
+	async function toDecklistEntry(input: string): Promise<IDecklistEntry | null> {
 		// takes a single decklist entry/line from a string to an IDecklistEntry object
 		// input:       "4 Mox Opal"
 		// returns:     {name: "Mox Opal", count: 4}
@@ -26,9 +31,10 @@ export function DeckBuilder(): ReactElement {
 
 		// ...extract name and count:
 		const cardCountStr = input.split(" ", 1)[0]; // '4 Mox Opal' -> '4'
-		const cardNameStr = input.slice(cardCountStr.length + 1); // '4 Mox Opal' -> 'Mox Opal'
+		const cardNameStr = input.slice(cardCountStr.length + 1); // '4 Mox opal' -> 'Mox opal'
+		const cardNameStrCapitalized = cardNameStr.slice(0, cardNameStr.length);
 		const decklistEntry = {
-			name: cardNameStr,
+			name: capitalizeWords(cardNameStr),
 			count: parseInt(cardCountStr),
 		};
 		// console.log("decklistEntry", decklistEntry);
@@ -43,7 +49,7 @@ export function DeckBuilder(): ReactElement {
 		return decklistEntry; // format: {name: "Mox Opal", count: 4}
 	}
 
-	const handleSaveDeck = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+	const handleSaveDeck = async (e: FormEvent<HTMLFormElement>): Promise<IDecklistEntry | void> => {
 		e.preventDefault();
 
 		console.log("");
@@ -62,16 +68,15 @@ export function DeckBuilder(): ReactElement {
 		let deckMainArr: IDecklistEntry[] = [];
 		let deckSBArr: IDecklistEntry[] = [];
 
+		// maindeck:
 		// convert each text line into an IDecklistEntry.
 		// "4 Mox Opal" -> {name:"Mox Opal", count:4}
-
-		// maindeck:
 		for (const textLine of deckMainArrDirty) {
-			if (textLine.length === 0) {
+			if (textLine.length == 0) {
 				// skip empty lines.
 				continue;
 			}
-			let newEntry: IDecklistEntry | null = toDecklistEntry(textLine);
+			let newEntry: IDecklistEntry | null = await toDecklistEntry(textLine);
 			// data validation
 			if (newEntry !== null) {
 				// don't push entry if it is = null instead of being of type IDecklistEntry).
@@ -88,12 +93,14 @@ export function DeckBuilder(): ReactElement {
 		console.log("deckMainArr", deckMainArr);
 
 		// sideboard:
+		// convert each text line into an IDecklistEntry.
+		// "4 Mox Opal" -> {name:"Mox Opal", count:4}
 		for (const textLine of deckSBArrDirty) {
-			if (textLine.length === 0) {
+			if (textLine.length == 0) {
 				// skip empty lines.
 				continue;
 			}
-			let newEntry: IDecklistEntry | null = toDecklistEntry(textLine);
+			let newEntry: IDecklistEntry | null = await toDecklistEntry(textLine);
 			// data validation
 			if (newEntry !== null) {
 				// don't push entry if it is = null instead of being of type IDecklistEntry).
@@ -112,62 +119,54 @@ export function DeckBuilder(): ReactElement {
 		setDeckName(rawDeckName);
 		setDeckMain(deckMainArr);
 		setDeckSB(deckSBArr);
+		setDeck({
+			name: rawDeckName,
+			main: deckMain,
+			sideboard: deckSB,
+		});
 
-		// check card names against api
-		// ...
-
-		// create decklist array with card objects
-		// ...
+		// create decklist array with ICard objects ()
+		// ...TODO
 
 		// deckbuilding rules (>=60 cards. <=4 of a kind)
-		// ...
+		// ...TODO
 
 		// save deck to LocalStorage
 		// ...
+		console.log("deck:", deck);
+
+		localStorage.setItem("deck", await JSON.stringify(deck));
 	};
 
 	const handleLookup = async (cname: string) => {
-		// let foo = parseCardName(cname).then(() => {
-		// 	console.log("cnameexists1", foo);
-		// });
-		// console.log("cnameexists2", foo);
-		// console.log(parseCardName(cname));
-		// parseCardName(cname);
-		// console.log("parseCardName", parseCardName(cname));
-
-		// works:
-		// parseCardName(cname).then((result) => console.log("result:", result));
-
 		const resp = await parseCardName(cname);
 		console.log("cname length", cname.length);
 		console.log("resp length", resp.length);
-
-		// const resp2 = parseCardName(cname);
 	};
 
 	return (
 		<>
 			<section id="deckBuilder">
 				<input type="text" id="searchtext" />
+				<button onClick={() => handleLookup("Mox Opal")}>"Mox Opal"</button>
+				<button onClick={() => handleLookup("Mox opal")}>"Mox opal"</button>
+				<button onClick={() => handleLookup("MOX OPAL")}>"MOX OPAL"</button>
 				<button onClick={() => handleLookup("mox opal")}>"mox opal"</button>
-				<button onClick={() => handleLookup("Moxopal")}>"moxopal"</button>
-				<button onClick={() => handleLookup("Moxpal")}>"moxpal"</button>
+				<button onClick={() => handleLookup("Moxopal")}>"Moxopal"</button>
+				<button onClick={() => handleLookup("moxpal")}>"moxpal"</button>
 				{/* <form action=""></form> */}
 				<form id="decklist-form" onSubmit={handleSaveDeck}>
-					{/* <input name="deckName" id="deckName" placeholder="Deck name"></input>
-					<textarea name="deckMain" id="deckMain" placeholder="Deck list" rows={20}></textarea>
-					<textarea name="deckSB" id="deckSB" placeholder="Sideboard" rows={8}></textarea> */}
 					<input //
 						name="deckName"
 						id="deckName"
 						placeholder="Deck name"
 						value={rawDeckName}
-						onChange={(e) => setRawDeckName(e.target.value)} // Update state when input changes
+						onChange={(e) => setRawDeckName(e.target.value)}
 					/>
 					<textarea //
 						name="deckMain"
 						id="deckMain"
-						placeholder="Deck list"
+						placeholder="Main deck"
 						rows={20}
 						value={rawDeckMain}
 						onChange={(e) => setRawDeckMain(e.target.value)}

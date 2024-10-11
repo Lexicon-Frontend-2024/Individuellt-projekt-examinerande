@@ -23,18 +23,38 @@ export async function parseCardName(cardName: string) {
 			okSoFar = false;
 		} else if ((await data.object) === "card") {
 			console.log("is card returning true");
-			retVal = data.name;
+			retVal = capitalizeWords(data.name); // "mox opal" -> "Mox Opal"
 		}
 		console.log("we got here too");
 	} catch (e) {
 		okSoFar = false;
 		// console.error(e);
 	}
-	if (okSoFar) {
-		console.log("retVal:", retVal);
-		return retVal;
+	if (!okSoFar) {
+		return "";
 	} else {
 		console.log("retVal:", retVal);
-		return retVal;
 	}
+	return retVal;
+}
+
+export function capitalizeWords(str: string) {
+	// takes a string of words and capitalizes the first char of each word.
+	// example input: "hello WORLD"
+	// example output: "Hello World"
+
+	// split string into array of lowercase words:
+	const wordsLowerCase: string[] = str.toLowerCase().split(" ");
+
+	// capitalize each word:
+	let wordsCapitalized: string[] = [];
+	for (const word of wordsLowerCase) {
+		const wordCapitalized = word.charAt(0).toUpperCase() + word.slice(1);
+		wordsCapitalized.push(wordCapitalized);
+	}
+
+	// re-join words back into a single string:
+	const stringCapitalized: string = wordsCapitalized.join(" ");
+
+	return stringCapitalized;
 }

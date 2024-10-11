@@ -46,3 +46,9 @@ export interface IDecklistEntry {
 	name: string;
 	count: number;
 }
+
+export interface IDeck {
+	name: string;
+	main: IDecklistEntry[];
+	sideboard: IDecklistEntry[];
+}
