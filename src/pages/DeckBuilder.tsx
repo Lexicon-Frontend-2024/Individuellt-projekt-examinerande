@@ -22,7 +22,7 @@ export function DeckBuilder(): ReactElement {
 		// input:       "4 Mox Opal"
 		// returns:     {name: "Mox Opal", count: 4}
 		//
-		//returns null line can't be parsed
+		//returns null if line can't be parsed
 
 		if (input.length === 0) {
 			//data validation
@@ -30,9 +30,8 @@ export function DeckBuilder(): ReactElement {
 		}
 
 		// ...extract name and count:
-		const cardCountStr = input.split(" ", 1)[0]; // '4 Mox Opal' -> '4'
-		const cardNameStr = input.slice(cardCountStr.length + 1); // '4 Mox opal' -> 'Mox opal'
-		const cardNameStrCapitalized = cardNameStr.slice(0, cardNameStr.length);
+		const cardCountStr = input.split(" ", 1)[0]; // '4 mox opal' -> '4'
+		const cardNameStr = input.slice(cardCountStr.length + 1); // '4 mox opal' -> 'mox opal'
 		const decklistEntry = {
 			name: capitalizeWords(cardNameStr),
 			count: parseInt(cardCountStr),
@@ -135,7 +134,8 @@ export function DeckBuilder(): ReactElement {
 		// ...
 		console.log("deck:", deck);
 
-		localStorage.setItem("deck", await JSON.stringify(deck));
+		// localStorage.setItem("deck", await JSON.stringify(deck));
+		localStorage.setItem("deck", JSON.stringify(deck));
 	};
 
 	const handleLookup = async (cname: string) => {
@@ -148,6 +148,9 @@ export function DeckBuilder(): ReactElement {
 		<>
 			<section id="deckBuilder">
 				<input type="text" id="searchtext" />
+				<br />
+				Buttons for testing purposes:
+				<br />
 				<button onClick={() => handleLookup("Mox Opal")}>"Mox Opal"</button>
 				<button onClick={() => handleLookup("Mox opal")}>"Mox opal"</button>
 				<button onClick={() => handleLookup("MOX OPAL")}>"MOX OPAL"</button>
